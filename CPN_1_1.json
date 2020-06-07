@@ -1,0 +1,238 @@
+{
+    "name": "CPN_1",
+    "enriched": [
+        "CPN_2"
+    ],
+    "CPT": {
+        "A": {
+            "domain": [
+                "a1",
+                "a2",
+                "a3",
+                "a4",
+                "a5"
+            ],
+            "pref_relations": [
+                {
+                    "condition": [
+                        "b1"
+                    ],
+                    "preference": [
+                        "a4",
+                        "a1",
+                        "a5",
+                        "a2",
+                        "a3"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                },
+                {
+                    "condition": [
+                        "b2"
+                    ],
+                    "preference": [
+                        "a4",
+                        "a1",
+                        "a5",
+                        "a2",
+                        "a3"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                },
+                {
+                    "condition": [
+                        "c1"
+                    ],
+                    "preference": [
+                        "a4",
+                        "a1",
+                        "a5",
+                        "a2",
+                        "a3"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                },
+                {
+                    "condition": [
+                        "c2"
+                    ],
+                    "preference": [
+                        "a4",
+                        "a1",
+                        "a5",
+                        "a2",
+                        "a3"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                },
+                {
+                    "condition": [
+                        "c3"
+                    ],
+                    "preference": [
+                        "a4",
+                        "a1",
+                        "a5",
+                        "a2",
+                        "a3"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                }
+            ]
+        },
+        "B": {
+            "domain": [
+                "b1",
+                "b2"
+            ],
+            "pref_relations": [
+                {
+                    "condition": [
+                        "a1"
+                    ],
+                    "preference": [
+                        "b1",
+                        "b2"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                },
+                {
+                    "condition": [
+                        "a2"
+                    ],
+                    "preference": [
+                        "b2",
+                        "b1"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                },
+                {
+                    "condition": [
+                        "a4"
+                    ],
+                    "preference": [
+                        "b1",
+                        "b2"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                }
+            ]
+        },
+        "C": {
+            "domain": [
+                "c1",
+                "c2",
+                "c3"
+            ],
+            "pref_relations": [
+                {
+                    "condition": [
+                        "b1"
+                    ],
+                    "preference": [
+                        "c2",
+                        "c1",
+                        "c3"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                },
+                {
+                    "condition": [
+                        "b2"
+                    ],
+                    "preference": [
+                        "c2",
+                        "c1",
+                        "c3"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                },
+                {
+                    "condition": [
+                        "a5"
+                    ],
+                    "preference": [
+                        "c2",
+                        "c1",
+                        "c3"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                },
+                {
+                    "condition": [
+                        "a3"
+                    ],
+                    "preference": [
+                        "c2",
+                        "c1",
+                        "c3"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                },
+                {
+                    "condition": [
+                        "a2"
+                    ],
+                    "preference": [
+                        "c2",
+                        "c1",
+                        "c3"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                },
+                {
+                    "condition": [
+                        "a1"
+                    ],
+                    "preference": [
+                        "c2",
+                        "c1",
+                        "c3"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                },
+                {
+                    "condition": [
+                        "a4"
+                    ],
+                    "preference": [
+                        "c2",
+                        "c1",
+                        "c3"
+                    ],
+                    "regardless": [
+                        "None"
+                    ]
+                }
+            ]
+        }
+    }
+}

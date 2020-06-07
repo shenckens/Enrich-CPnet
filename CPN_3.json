@@ -1,0 +1,26 @@
+{
+    "name": "CPN_3",
+    "enriched": [],
+    "CPT": {
+        "A": {
+            "domain": ["a1", "a2", "a3", "a4"],
+            "pref_relations": [
+                {
+                    "condition": ["b1"],
+                    "preference": ["a1", "a2", "a3", "a4"],
+                    "regardless": ["None"]
+                }
+            ]
+        },
+        "B": {
+            "domain": ["b1", "b2"],
+            "pref_relations": [
+                {
+                    "condition": ["None"],
+                    "preference": ["b2", "b1"],
+                    "regardless": ["None"]
+                }
+            ]
+        }
+    }
+}

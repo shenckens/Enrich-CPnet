@@ -1,0 +1,41 @@
+{
+    "name": "CPN_2",
+    "enriched": [],
+    "CPT": {
+        "A": {
+            "domain": ["a1", "a2", "a3", "a4", "a5"],
+            "pref_relations": [
+                {
+                    "condition": ["None"],
+                    "preference": ["a4", "a1", "a5", "a2", "a3"],
+                    "regardless": ["None"]
+                }
+            ]
+        },
+        "B": {
+            "domain": ["b1", "b2"],
+            "pref_relations": [
+                {
+                    "condition": ["a2"],
+                    "preference": ["b2", "b1"],
+                    "regardless": ["None"]
+                },
+                {
+                    "condition": ["a4"],
+                    "preference": ["b1", "b2"],
+                    "regardless": ["None"]
+                }
+            ]
+        },
+        "C": {
+            "domain": ["c1", "c2", "c3"],
+            "pref_relations": [
+                {
+                    "condition": ["None"],
+                    "preference": ["c2", "c1", "c3"],
+                    "regardless": ["None"]
+                }
+            ]
+        }
+    }
+}
