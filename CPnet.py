@@ -100,10 +100,9 @@ class CPnet(object):
         return CPT["pref_relations"][-1]
 
 
-    def remove_preference_relation(self, feature, condition):
+    def remove_preference_relation(self, feature, pref_relation):
         """Removes a conditional preference relation."""
-        self.CPN["CPT"][feature]["pref_relations"]\
-            .remove(self.get_preference_relation(feature, condition))
+        self.CPN["CPT"][feature]["pref_relations"].remove(pref_relation)
         pass
 
 
@@ -119,7 +118,7 @@ class CPnet(object):
     def check_regardless(self, feature, condition):
         """Checks regardless for every conditional preference relation
            and fills them in where needed."""
-        
+
         pass
 
 
@@ -158,7 +157,6 @@ class CPnet(object):
                 val_2_index = pref_2.index(val_2)
                 right_set = set(pref_2[val_2_index:]).intersection(set(pref_1))
                 left_set = set(pref_2[:val_2_index]).intersection(set(pref_1))
-
                 # Insert value and check indifference
                 check = self.insert_value(pref_1, val_2, left_set, right_set)
                 if check:
@@ -166,6 +164,7 @@ class CPnet(object):
                         new = self.new_preference_relation(feature, condition)
                         new["preference"] = [list([str(val), str(val_2)])]
                         new["regardless"] = regardless
+
         pass
 
 
@@ -173,6 +172,12 @@ class CPnet(object):
         """Inserts a value coming from the partial merge function at the
            right index. Returns the index to insert.
            Otherwise returns a list of indifferent values."""
+
+        # Check if value needs to be insterted.
+        for left in left_set:
+            for right in right_set:
+                if preference.index(left) > preference.index(right):
+                    return 0
         i_l = 0
         for i in range(len(preference)):
             if preference[i] in left_set:
@@ -185,9 +190,7 @@ class CPnet(object):
                         break
                     return preference[:i_r]
                 i_diff = i_r - i_l
-                if i_diff < 0:
-                    break
-                elif i_diff == 1:
+                if i_diff == 1:
                     preference.insert(i_r, value)
                     break
                 else:
@@ -226,7 +229,7 @@ class CPnet(object):
         pass
 
 
-    def decompose_CPN(self):
+    def decompose(self):
         """Decomposes every preference relation where possible."""
         for feature in self.features:
             for pref_relation in self.get_CPT(feature)["pref_relations"]:
@@ -236,13 +239,40 @@ class CPnet(object):
             for pref_relation in self.get_CPT(feature)["pref_relations"]:
                 if pref_relation["condition"][0] == "None":
                     self.decompose_independent(feature, pref_relation)
-                    self.remove_preference_relation(feature, "None")
+                    self.remove_preference_relation(feature, pref_relation)
         pass
 
 
-    def recompose(self, feature):
+    def recompose(self):
         """Recomposes every feature in an enriched CPN where possible."""
+        # Add all conditions with equal preference together
+        for feature in sorted(self.features):
+            prefs = self.get_CPT(feature)["pref_relations"]
+            if len(prefs) > 1:
+                for pref in prefs:
+                    for check in prefs[1:]:
+                        if check["preference"] == pref["preference"] and\
+                           check != pref:
+                            pref["condition"].append(check["condition"][0])
+                            self.remove_preference_relation(feature, check)
+                            return self.recompose()
+
+        # Check if conjunction of conditions means independence
+        for feature in self.features:
+            independent = True
+            all_domains = []
+            for f in self.features.difference(set(feature)):
+                # if f != feature:
+                all_domains.extend(list(self.get_domain(f)))
+            prefs = self.get_CPT(feature)["pref_relations"]
+            for pref in prefs:
+                for check in all_domains:
+                    if not check in pref["condition"]:
+                        independent = False
+                if independent:
+                    pref["condition"] = ["None"]
         pass
+
 
 
     def make_json(self):
