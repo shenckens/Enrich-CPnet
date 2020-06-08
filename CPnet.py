@@ -15,7 +15,6 @@ class CPnet(object):
         self.features = set([F for F in self.CPN["CPT"]])
         self.domains = {feature:(set([val for val in self.CPN["CPT"]\
                         [feature]["domain"]])) for feature in self.features}
-        self.enrichments = 0
 
 
     def get_name(self):
@@ -30,7 +29,8 @@ class CPnet(object):
 
     def get_enrichments(self):
         """Returns how many times the CP-net was enriched."""
-        return self.enrichments
+        # return self.enrichments
+        return len(self.CPN["enriched"])
 
 
     def get_CPT(self, feature):
@@ -46,6 +46,7 @@ class CPnet(object):
         """Returns the domain of feature values."""
         return self.domains[feature]
 
+
     def add_domain(self, feature, other_domain):
         """Adds the unique values in a feature domain coming from another CPN
            to its own feature domain."""
@@ -54,6 +55,7 @@ class CPnet(object):
             if not value in self.CPN["CPT"][feature]["domain"]:
                 self.CPN["CPT"][feature]["domain"].append(value)
         pass
+
 
     def get_preference_relation(self, feature, condition):
         """Returns the prefence relation over feature values given a condition
@@ -132,7 +134,6 @@ class CPnet(object):
     def increase_enrichments(self, other):
         """Increments the enrichments counter."""
         if not other.get_name() in self.CPN["enriched"]:
-            self.enrichments += 1
             self.CPN["enriched"].append(other.get_name())
         pass
 
@@ -172,7 +173,6 @@ class CPnet(object):
         """Inserts a value coming from the partial merge function at the
            right index. Returns the index to insert.
            Otherwise returns a list of indifferent values."""
-
         # Check if value needs to be insterted.
         for left in left_set:
             for right in right_set:
@@ -256,13 +256,11 @@ class CPnet(object):
                             pref["condition"].append(check["condition"][0])
                             self.remove_preference_relation(feature, check)
                             return self.recompose()
-
         # Check if conjunction of conditions means independence
         for feature in self.features:
             independent = True
             all_domains = []
             for f in self.features.difference(set(feature)):
-                # if f != feature:
                 all_domains.extend(list(self.get_domain(f)))
             prefs = self.get_CPT(feature)["pref_relations"]
             for pref in prefs:
@@ -284,12 +282,10 @@ class CPnet(object):
         pass
 
 
-    # def __str__(self):
-    #     return json.dumps(self.CPN, indent=4)
     def __str__(self):
         """Returns the string representation of the CP-net object."""
         string = []
-        string.append("\n<{} ({} enrichments)>\n".format(str(self.name), str(self.enrichments)))
+        string.append("\n<{} ({} enrichments)>\n".format(str(self.name), str(self.get_enrichments())))
         for feature in sorted(self.features):
             string.append("\n{}:\n\t".format(feature))
             for pref_relation in self.CPN["CPT"][feature]["pref_relations"]:
