@@ -22,6 +22,7 @@ def main():
     CPN_enrich = CPnet(sys.argv[1])
 
     print(CPN_1)
+    print(CPN_2)
     enrich(CPN_enrich, CPN_2)
     CPN_enrich.make_json()
     print(CPN_enrich)
@@ -52,7 +53,6 @@ def enrich(CPN_1, CPN_2):
             elif not condition in CPN_1.get_conditions(feature):
                 CPN_1.complete_merge(feature, condition, preference, regardless)
             else:
-                # check for every condition??
                 if check_equal_preference(CPN_1, CPN_2, feature, condition):
                     continue
                 if check_unequal_preference(CPN_1, CPN_2, feature, condition):

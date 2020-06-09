@@ -120,6 +120,7 @@ class CPnet(object):
     def check_regardless(self, feature, condition):
         """Checks regardless for every conditional preference relation
            and fills them in where needed."""
+        # for feature in self.features:
 
         pass
 
@@ -165,7 +166,6 @@ class CPnet(object):
                         new = self.new_preference_relation(feature, condition)
                         new["preference"] = [list([str(val), str(val_2)])]
                         new["regardless"] = regardless
-
         pass
 
 
@@ -189,8 +189,7 @@ class CPnet(object):
                         preference.insert(0, value)
                         break
                     return preference[:i_r]
-                i_diff = i_r - i_l
-                if i_diff == 1:
+                if (i_r - i_l) == 1:
                     preference.insert(i_r, value)
                     break
                 else:
@@ -285,7 +284,10 @@ class CPnet(object):
     def __str__(self):
         """Returns the string representation of the CP-net object."""
         string = []
-        string.append("\n<{} ({} enrichments)>\n".format(str(self.name), str(self.get_enrichments())))
+        string.append("\n<{}>".format(str(self.name)))
+        if self.get_enrichments() > 0:
+            string.append(" ({}x enriched)".format(str(self.get_enrichments())))
+        string.append("\n")
         for feature in sorted(self.features):
             string.append("\n{}:\n\t".format(feature))
             for pref_relation in self.CPN["CPT"][feature]["pref_relations"]:

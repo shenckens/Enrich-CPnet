@@ -7,7 +7,7 @@
             "pref_relations": [
                 {
                     "condition": ["b1"],
-                    "preference": ["a5", "a2", "a8", "a4", "a6", "a3", "a7"],
+                    "preference": ["a5", "a10", "a2", "a8", "a4", "a6", "a3", "a7"],
                     "regardless": ["None"]
                 }
             ]
