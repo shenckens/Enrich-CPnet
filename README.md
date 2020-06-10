@@ -13,7 +13,7 @@ For explanations and examples, see below.
 ### JSON example
 
 
-Every .json is formatted according to the example below.
+Every .json must be formatted according to the example below.
 
 
 ```
@@ -23,10 +23,10 @@ Every .json is formatted according to the example below.
   "CPT" : {     
          <"feature_name"> : {         
                              "domain" : <list containing strings of all feature values>                            
-                             "pref_relation" : {                           
+                             "pref_relations" : {                           
                                                "condition" : <list of condition(s)>                                            
                                                "preference" : <list of preference ordering>                                             
-                                               "regardless" : <list of regardless values>                                          
+                                               "regardless" : <list of regardless value(s)>                                          
                                               },                                          
                                               {                                              
                                                 ...                                               
