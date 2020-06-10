@@ -2,7 +2,7 @@
 
 Code for merging two conditional preference networks (CP-nets).
 
-The first CP-net gets enriched with preferences and/or features from the second CP-net.//
+The first CP-net gets enriched with preferences and/or features from the second CP-net.
 
 
 Run enrich.py in a Python 3 terminal.
