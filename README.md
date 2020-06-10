@@ -50,14 +50,14 @@ For example:
 
 The condtional preference statement:   
 ```
-                                       a; b; (c & d): x2 > (x1 ~ x4) > x3 [e, f]
+a; b; (c & d): x2 > (x1 ~ x4) > x3 [e, f]
 ```
 
 is represented in a json as:           
 ```
-                                       condition : [a, b, [c, d]]
-                                       preference : [x2, [x1, x4], x3]                  
-                                       regardless : [e, f]
+condition : [a, b, [c, d]]
+preference : [x2, [x1, x4], x3]                  
+regardless : [e, f]
 ```
                                        
 Meaning that: 
