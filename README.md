@@ -68,3 +68,7 @@ a nested list in 'preference' corresponds to an indifferent relation (~)
 
 
 The order of values in 'preference' represents the perferential order from most preferred to least preferred.
+
+If a conditional preference relation is independent, the condition is set to ```["None"]```
+
+If there is no regardless, it is set to ```["None"]```
