@@ -2,8 +2,9 @@
 # June 2020
 #
 # Enriches a conditional preference network (CPN_1) with features and/or values
-# from conditional preference network (CPN_2). Returns the enriched CPN_1.
-# Note: CPNs need to be paths to .json files (see readme.txt)
+# from conditional preference network (CPN_2).
+# Prints CPN_1 and CPN_2, followed by the enriched CPN_1.
+# Note: CPNs need to be paths to .json files (see README.md)
 #
 # Usage: python3 enrich.py <path to CPN_1> <path to CPN_2>
 
