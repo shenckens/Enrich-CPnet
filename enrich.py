@@ -61,7 +61,7 @@ def enrich(CPN_1, CPN_2):
                 else:
                     CPN_1.partial_merge(feature, condition, \
                                         preference, regardless)
-    # check regardless
+    # check regardless ?
     CPN_1.recompose()
     CPN_1.increase_enrichments(CPN_2)
     return CPN_1

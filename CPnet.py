@@ -117,14 +117,6 @@ class CPnet(object):
         return conditions
 
 
-    def check_regardless(self, feature, condition):
-        """Checks regardless for every conditional preference relation
-           and fills them in where needed."""
-        # for feature in self.features:
-
-        pass
-
-
     def set_name(self, name):
         """Changes the name."""
         self.CPN["name"] = name
@@ -242,6 +234,15 @@ class CPnet(object):
         pass
 
 
+
+    def check_regardless(self, feature, condition):
+        """Checks regardless for every conditional preference relation
+           and fills them in where needed."""
+        # Still do to ?
+
+        pass
+
+
     def recompose(self):
         """Recomposes every feature in an enriched CPN where possible."""
         # Add all conditions with equal preference together
@@ -298,9 +299,9 @@ class CPnet(object):
                             for j in i:
                                 string.append(str(j)), string.append(" & ")
                             string[-1] = ")"
-                            string.append(", ")
+                            string.append("; ")
                             continue
-                        string.append(str(i)), string.append(", ")
+                        string.append(str(i)), string.append("; ")
                     string[-1] = "  :  "
                 for value in pref_relation["preference"]:
                     if isinstance(value, list):
