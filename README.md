@@ -48,15 +48,17 @@ NOTE: in the pref_relation section; condition, preference and regardless can be 
 
 For example:
 
-The condtional preference statement:   ```
+The condtional preference statement:   
+```
                                        a; b; (c & d): x2 > (x1 ~ x4) > x3 [e, f]
-                                       ```
+```
 
-is represented in a json as:           ```
+is represented in a json as:           
+```
                                        condition : [a, b, [c, d]]
                                        preference : [x2, [x1, x4], x3]                  
                                        regardless : [e, f]
-                                       ```
+```
                                        
 Meaning that: 
 
