@@ -1,4 +1,4 @@
-# Thesis-code
+# Enrich-CPnet
 
 Code for merging two conditional preference networks (CP-nets).
 
