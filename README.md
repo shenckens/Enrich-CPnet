@@ -18,15 +18,15 @@ Every .json is formatted according to the example below.
 
 ```
 { 
-  name : <name of the CP-net>,  
-  enriched : <list of other CP-nets already used for enriching>,
-  CPT : {     
-         <feature_name> : {         
-                             domain : <list of all feature values>                            
-                             pref_relation : {                           
-                                               condition : <list of condition(s)>                                            
-                                               preference : <list of preference ordering>                                             
-                                               regardless : <list of regardless values>                                          
+  "name" : <"name of the CP-net">,  
+  "enriched" : <list containing strings of other CP-net names already used for enriching>,
+  "CPT" : {     
+         <"feature_name"> : {         
+                             "domain" : <list containing strings of all feature values>                            
+                             "pref_relation" : {                           
+                                               "condition" : <list of condition(s)>                                            
+                                               "preference" : <list of preference ordering>                                             
+                                               "regardless" : <list of regardless values>                                          
                                               },                                          
                                               {                                              
                                                 ...                                               
@@ -51,9 +51,9 @@ a; b; (c & d): x2 > (x1 ~ x4) > x3 [e, f]
 
 is represented in a json as:           
 ```
-condition : [a, b, [c, d]]
-preference : [x2, [x1, x4], x3]                  
-regardless : [e, f]
+"condition" : ["a", "b", ["c", "d"]]
+"preference" : ["x2", ["x1", "x4"], "x3"]                  
+"regardless" : ["e", "f"]
 ```
                                        
 Meaning that: 
