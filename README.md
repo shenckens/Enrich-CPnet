@@ -19,14 +19,14 @@ Every .json must be formatted according to the example below.
 ```
 { 
   "name" : <"name of the CP-net">,  
-  "enriched" : <list containing strings of other CP-net names already used for enriching>,
+  "enriched" : [<list containing strings of other CP-net names already used for enriching>],
   "CPT" : {     
          <"feature_name"> : {         
-                             "domain" : <list containing strings of all feature values>                            
+                             "domain" : [<list containing strings of all feature values>],                            
                              "pref_relations" : {                           
-                                               "condition" : <list of condition(s)>                                            
-                                               "preference" : <list of preference ordering>                                             
-                                               "regardless" : <list of regardless value(s)>                                          
+                                               "condition" : [<list of condition(s)>],                                            
+                                               "preference" : [<list of preference ordering>],                                             
+                                               "regardless" : [<list of regardless value(s)>]                                          
                                               },                                          
                                               {                                              
                                                 ...                                               
