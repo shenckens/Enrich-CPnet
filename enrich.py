@@ -1,3 +1,4 @@
+# enrich.py
 # Stijn Henckens
 # June 2020
 #
@@ -31,21 +32,22 @@ def main():
 
 
 def enrich(CPN_1, CPN_2):
-    # Decompose both CPnets
+    """The asymmetric merging algorithm. Returns the enriched CP-net."""
+    # Decompose both CPnets.
     CPN_1.decompose()
     CPN_2.decompose()
 
-    # Iterate through features
+    # Iterate through features.
     for feature in CPN_2.get_features():
-        # Add unknown feature
+        # Add unknown features.
         if not feature in CPN_1.get_features():
             CPN_1.add_feature(feature)
 
         new_domain = CPN_2.get_CPT(feature)["domain"]
-        # Adopt domain
+        # Adopt unique domain values.
         CPN_1.add_domain(feature, new_domain)
 
-        # Check every condition
+        # Asymmetric merging
         for condition in CPN_2.get_conditions(feature):
             preference = CPN_2.get_preference(feature, condition)
             regardless = CPN_2.get_regardless(feature, condition)
@@ -62,7 +64,6 @@ def enrich(CPN_1, CPN_2):
                 else:
                     CPN_1.partial_merge(feature, condition, \
                                         preference, regardless)
-    # check regardless ?
     CPN_1.recompose()
     CPN_1.increase_enrichments(CPN_2)
     return CPN_1

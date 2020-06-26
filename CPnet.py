@@ -1,3 +1,10 @@
+# CPnet.py
+# Stijn Henckens
+# June 2020
+#
+# Creates a CP-net structure object from a CP-net JSON file.
+# Includes all methods needed for asymmetrical merging.
+
 import json
 
 
@@ -29,7 +36,6 @@ class CPnet(object):
 
     def get_enrichments(self):
         """Returns how many times the CP-net was enriched."""
-        # return self.enrichments
         return len(self.CPN["enriched"])
 
 
@@ -151,7 +157,7 @@ class CPnet(object):
                 val_2_index = pref_2.index(val_2)
                 right_set = set(pref_2[val_2_index:]).intersection(set(pref_1))
                 left_set = set(pref_2[:val_2_index]).intersection(set(pref_1))
-                # Insert value and check indifference
+                # Insert value and check indifference.
                 check = self.insert_value(pref_1, val_2, left_set, right_set)
                 if check:
                     for val in check:
@@ -193,6 +199,8 @@ class CPnet(object):
 
 
     def decompose_multiple(self, feature, pref_relation):
+        """Decomposes multiple-condition preference relations to single
+           condition preference relations."""
         preference = pref_relation["preference"]
         regardless = pref_relation["regardless"]
         for _ in pref_relation["condition"][:-1]:
@@ -231,15 +239,6 @@ class CPnet(object):
                 if pref_relation["condition"][0] == "None":
                     self.decompose_independent(feature, pref_relation)
                     self.remove_preference_relation(feature, pref_relation)
-        pass
-
-
-
-    def check_regardless(self, feature, condition):
-        """Checks regardless for every conditional preference relation
-           and fills them in where needed."""
-        # Still do to ?
-
         pass
 
 
@@ -297,7 +296,7 @@ class CPnet(object):
                         if isinstance(i, list):
                             string.append("(")
                             for j in i:
-                                string.append(str(j)), string.append(" & ")
+                                string.append(str(j)), string.append(" , ")
                             string[-1] = ")"
                             string.append("; ")
                             continue

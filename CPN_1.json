@@ -6,7 +6,7 @@
             "domain": ["a1", "a2"],
             "pref_relations": [
                 {
-                    "condition": ["None"],
+                    "condition": ["b1"],
                     "preference": ["a1", "a2"],
                     "regardless": ["None"]
                 }
@@ -16,7 +16,7 @@
             "domain": ["b1", "b2"],
             "pref_relations": [
                 {
-                    "condition": ["a1"],
+                    "condition": ["None"],
                     "preference": ["b1", "b2"],
                     "regardless": ["None"]
                 }

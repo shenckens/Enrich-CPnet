@@ -17,7 +17,17 @@
             "pref_relations": [
                 {
                     "condition": ["None"],
-                    "preference": ["b2", "b1"],
+                    "preference": ["b1", "b2"],
+                    "regardless": ["None"]
+                }
+            ]
+        },
+        "C": {
+            "domain": ["c1", "c2"],
+            "pref_relations": [
+                {
+                    "condition": ["b1"],
+                    "preference": ["c2", "c1"],
                     "regardless": ["None"]
                 }
             ]

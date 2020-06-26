@@ -21,7 +21,7 @@
                     "regardless": ["None"]
                 },
                 {
-                    "condition": ["a4", ["a1", "c2"]],
+                    "condition": ["a4", ["a1", "c1"]],
                     "preference": ["b1", "b2"],
                     "regardless": ["None"]
                 }
